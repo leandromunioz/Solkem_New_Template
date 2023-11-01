@@ -84,6 +84,7 @@ body {
 
 }
 
+
 .header__nav {
     flex: 1;
 }
@@ -172,7 +173,7 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
 
 .contenedor__button {
     height: 4rem;
-    background-color: #ff880090;
+    background-color: #ff7b0091;
     color: #fff;
     border-radius: 0.7rem;
     font-size: 1.7rem;
@@ -188,19 +189,19 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
 
 .contenedor__button--sincronizar:hover,
 .contenedor__button--filtrar:hover {
-    background-color: #e67e22;
+    background-color: #f6590a;
     border-color: #b35f15;
     color: #ffffff;
 }
 
 .contenedor__button--nuevo_cliente {
-    margin-top: 2rem;
+    margin-top: 0.6rem;
     width: 12rem;
 }
 
 .contenedor__button--nuevo_cliente:hover,
 .contenedor__button--filtrar:hover {
-    background-color: #e67e22;
+    background-color: #f6590a;
     border-color: #b35f15;
     color: #ffffff;
 }
@@ -219,6 +220,7 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
     align-items: center;
     border: 0.1rem solid #dddddd;
     padding: 1rem;
+    font-size: 1.7rem;
 
 }
 
@@ -271,7 +273,7 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
     border: 0.2rem solid #ccc;
     background-color: #ff7f08;
     color: rgba(255, 255, 255, 0.833);
-    font-size: medium;
+    font-size: 1.7;
     border-radius: 0.7rem;
     transition: background-color 0.3s, color 0.3s;
     /* Añade la transición al color de fondo y al color del texto */
@@ -317,6 +319,7 @@ td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+    font-size: 1.7rem;
 }
 
 th {
@@ -382,6 +385,7 @@ th {
     cursor: pointer;
     transition: background-color 0.3s;
     border-radius: 0.7rem;
+    font-size: 1.7rem;
 }
 
 .tabla__pagina--activo,
@@ -401,9 +405,10 @@ th {
 
 .footer {
     background: linear-gradient(#fefbf4, #bababa);
-    /* Esta línea crea el gradiente */
     padding: 20px 0;
     color: #333;
+    font-size: 1.7rem;
+ 
 }
 
 
@@ -413,7 +418,6 @@ th {
     padding: 0 15px;
     display: flex;
     align-items: center;
-    /* Alineamos los elementos al centro verticalmente */
 }
 
 
@@ -422,7 +426,6 @@ th {
     align-items: center;
     flex-wrap: nowrap;
     width: 100%;
-    /* Ocupamos todo el ancho disponible */
 }
 
 .footer__brand img {
@@ -433,9 +436,7 @@ th {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    /* Espacio entre el logo y el texto */
     flex-grow: 0;
-    /* Evitamos que el logo crezca */
 }
 
 .footer__content>p {
@@ -443,13 +444,11 @@ th {
     color: #666;
     margin: 0 20px;
     flex-grow: 1;
-    /* Permiso para crecer, pero no más que los links */
     text-align: center;
 }
 
 .footer__links {
     flex-grow: 2;
-    /* Le damos más capacidad de crecimiento a los links */
 }
 
 .footer__links ul {
@@ -459,7 +458,6 @@ th {
     gap: 15px;
     text-align: center;
     margin: 0;
-    /* Eliminamos márgenes predeterminados */
 }
 
 .footer__links ul li a {
@@ -475,6 +473,7 @@ th {
 .footer__links ul li a.active {
     color: #FF7700;
 }
+
 
 /*Flecha para desplazarse*/
 .subir-topo {
@@ -496,4 +495,32 @@ th {
 
 .subir-topo:hover {
     background-color: #e67e22;
+}
+
+
+
+
+
+/* Clave de animación */
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estado inicial del footer */
+.footer-hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden; /* Asegura que el footer no bloquee otros elementos mientras está oculto */
+}
+
+/* Animación cuando el footer debe aparecer */
+.footer-visible {
+    animation: slideUp 2s forwards;
 }
