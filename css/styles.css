@@ -46,6 +46,10 @@ body {
 
 }
 
+/* Estilo cuando el enlace es "hovered" */
+.user-info__logout:hover .icon-tabler {
+    stroke: #1B3E64 !important;
+}
 
 
 /*Header*/
@@ -424,7 +428,7 @@ th {
 .footer__content {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     width: 100%;
 }
 
@@ -455,7 +459,7 @@ th {
     list-style: none;
     padding: 0;
     display: flex;
-    gap: 15px;
+    gap: 1.5rem;
     text-align: center;
     margin: 0;
 }
