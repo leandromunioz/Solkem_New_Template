@@ -2,6 +2,8 @@ html {
     box-sizing: border-box;
     font-size: 62.5%;
     color: rgb(46, 46, 46);
+    background-color: #fefbf4;
+
     /* 1 rem = 10px */
 }
 
@@ -23,20 +25,26 @@ body {
     margin: 0;
 }
 
+.header {
+    position: relative;
+}
+
 /*Sección Bienvenido*/
 
 .user-info {
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
-    margin-top: 1rem;
     margin-right: 0.8rem;
-
 }
 
 .user-info__welcome {
     margin: 0;
+    font-size: 1.5rem;
 
 }
 
@@ -60,10 +68,14 @@ body {
     justify-content: flex-start;
     align-items: center;
     padding: 10px 50px;
-    background-color: #fff;
+    background-color: #fefbf4;
     width: 100%;
     box-sizing: border-box;
     border-bottom: 1rem solid #1B3E64;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
 }
 
 
@@ -75,14 +87,22 @@ body {
     display: flex;
     margin: 0;
     padding: 0;
-    
+    margin-top: 2rem;
 
-    
 }
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
 
 .header__logo {
     flex: 0 0 auto;
-    padding-right: 5rem;
+    padding-right: 2rem;
+
+
 }
 
 .header__logo img {
@@ -94,27 +114,24 @@ body {
 
 .header__nav {
     flex: 1;
-    
+
 }
 
 .nav__list {
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .nav__item {
     display: flex;
+    margin-right: 30px;
+
 }
 
 .item__link {
     display: flex;
-    align-items: center;
-}
-
-.nav__item {
-    margin-right: 30px;
+    margin: 0;
 }
 
 .nav__item:last-child {
@@ -131,18 +148,18 @@ body {
 
 .item__icon {
 
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
 }
 
 .item__text {
-    margin-top: 5px;
-    justify-content: center;
+    font-size: 1.6rem;
+    margin-top: 1.6rem;
+    margin-left: 1.5rem;
     text-align: center;
     align-items: center;
-    
+
 }
 
 .item__link:hover .item__text,
@@ -185,10 +202,11 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
 
 .contenedor__button {
     height: 4rem;
-    background-color: #ff7b0091;
+    background-color: #ff7b00dc;
     color: #fff;
     border-radius: 0.7rem;
-    font-size: 1.7rem;
+    border-color: #c9c9c9;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
@@ -196,24 +214,27 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
 
 .contenedor__button--sincronizar {
     width: 12rem;
+
+
 }
 
 .contenedor__button--sincronizar:hover,
 .contenedor__button--filtrar:hover {
-    background-color: #f6590a;
-    border-color: #b35f15;
+    background-color: rgb(255, 72, 0);
+    border-color: #a6a6a6e4;
     color: #ffffff;
 }
 
 .contenedor__button--nuevo_cliente {
-    margin-top: 0.6rem;
+    margin-top: 1rem;
     width: 12rem;
+    height: 4.8rem;
 }
 
 .contenedor__button--nuevo_cliente:hover,
 .contenedor__button--filtrar:hover {
-    background-color: #f6590a;
-    border-color: #b35f15;
+    background-color: rgb(255, 72, 0);
+    border-color: #a6a6a6e4;
     color: #ffffff;
 }
 
@@ -231,7 +252,7 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
     align-items: center;
     border: 0.1rem solid #dddddd;
     padding: 1rem;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 
 }
 
@@ -245,7 +266,7 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
 }
 
 .tabla__select:focus {
-    background-color: #ff880090;
+    background-color: #dddddd;
 }
 
 
@@ -306,6 +327,54 @@ de la sección dónde se está actualmente para que funcione correctamente el c�
 }
 
 
+
+
+/* Estilo para la entrada de búsqueda de DataTables */
+.dataTables_filter input {
+    border: 0.2rem solid #ccc;
+    /* tus estilos */
+    background-color: #ff7f08;
+    /* tus estilos */
+    color: rgba(255, 255, 255, 0.833);
+    /* tus estilos */
+}
+
+/* Esconder el label que DataTables añade por defecto en la búsqueda ya que tú usas un placeholder */
+.dataTables_filter label {
+    display: none;
+}
+
+
+
+/* Esconde el label para longitud de página de DataTables, si es necesario */
+.dataTables_length label {
+    display: none;
+}
+
+.tabla__control {
+    display: flex;
+    justify-content: space-between;
+    /* Esto separará los elementos, uno a la izquierda y otro a la derecha */
+    align-items: center;
+    /* Esto alinea los elementos verticalmente en el centro */
+    padding: 10px;
+    /* Añade algo de espacio alrededor para que no esté todo pegado a los bordes */
+}
+
+/* Asegúrate de que el select y el label asociado no ocupen todo el ancho disponible */
+.tabla__label {
+    white-space: nowrap;
+    /* Esto evita que el label se rompa en varias líneas */
+}
+
+/* Asegúrate de que el input ocupe el espacio justo */
+.tabla__input-container {
+    /* Tus estilos existentes */
+    margin-left: auto;
+    /* Esto empujará tu input hacia la derecha */
+}
+
+
 .background {
     background-image: url('../img/background.png');
     height: 5rem;
@@ -324,7 +393,7 @@ td {
     border: 0.1rem solid #dddddd;
     text-align: left;
     padding: 0.8rem;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 th {
@@ -374,45 +443,18 @@ th {
     outline: none;
 }
 
-.tabla__paginacion {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 0;
-}
 
-.tabla__pagina {
-    background-color: #fff;
-    border: 0.1rem solid #dddddd;
-    padding: 1rem 1.5rem;
-    margin: 0 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 0.7rem;
-    font-size: 1.7rem;
-}
-
-.tabla__pagina--activo,
-.tabla__pagina:hover {
-    background-color: #ff7f08;
-    color: #ffffff;
-    border-color: #ff7f08;
-}
-
-.tabla__pagina:disabled {
-    color: #cccccc;
-    cursor: not-allowed;
-}
 
 
 /*Footer*/
 
 .footer {
-    background: linear-gradient(#fefbf4, #bababa);
+    background: linear-gradient(#fefbf4, #1B3E64);
     padding: 2rem 0;
     color: #333;
-    font-size: 1.7rem;
- 
+    font-size: 1.5rem;
+    align-items: center;
+
 }
 
 
@@ -422,6 +464,7 @@ th {
     padding: 0 1.5rem;
     display: flex;
     align-items: center;
+
 }
 
 
@@ -434,6 +477,7 @@ th {
 
 .footer__brand img {
     max-width: 100px;
+    margin-right: 2rem;
 }
 
 .footer__brand {
@@ -445,7 +489,7 @@ th {
 
 .footer__content>p {
     font-size: 1.4rem;
-    color: #666;
+    color: #e9e8e8;
     margin: 0 2rem;
     flex-grow: 1;
     text-align: center;
@@ -466,7 +510,7 @@ th {
 
 .footer__links ul li a {
     text-decoration: none;
-    color: #333;
+    color: #424242;
     transition: color 0.3s;
 }
 
@@ -476,6 +520,35 @@ th {
 
 .footer__links ul li a.active {
     color: #FF7700;
+}
+
+/*Media Query del footer para pantallas grandes*/
+
+@media (min-width: 1500px) {
+    .footer {
+        padding: 4rem 0;
+    }
+
+    .contenedor__footer {
+        max-width: 1400px;
+        padding: 0 3rem;
+    }
+
+    .footer__brand img {
+        max-width: 150px;
+    }
+
+    .footer__links ul {
+        gap: 2rem;
+    }
+
+    .footer__links ul li a {
+        font-size: 1.7rem;
+    }
+
+    .footer__content>p {
+        font-size: 1.6rem;
+    }
 }
 
 
@@ -499,32 +572,4 @@ th {
 
 .subir-topo:hover {
     background-color: #e67e22;
-}
-
-
-
-
-
-/* Animación footer */
-@keyframes slideUp {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Estado inicial del footer */
-.footer-hidden {
-    transform: translateY(100%);
-    opacity: 0;
-    visibility: hidden; /* Asegura que el footer no bloquee otros elementos mientras está oculto */
-}
-
-/* Animación cuando el footer debe aparecer */
-.footer-visible {
-    animation: slideUp 2s forwards;
 }
